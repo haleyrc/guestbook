@@ -1,0 +1,11 @@
+services:
+  server:
+    build:
+      context: .
+      platforms:
+        - linux/amd64
+    volumes:
+      - ./demo.db:/demo.db
+    platform: linux/amd64
+    ports:
+      - 8086:8086

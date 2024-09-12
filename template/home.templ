@@ -1,0 +1,32 @@
+package template
+
+import "github.com/haleyrc/guestbook/internal/guest"
+
+type HomePageProps struct {
+	Guests []guest.Guest
+}
+
+templ HomePage(props HomePageProps) {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Guestbook</title>
+		</head>
+		<body>
+			<form method="POST">
+				<input type="text" name="message" placeholder="Your message here..."/>
+				<button type="submit">Sign</button>
+			</form>
+			<table>
+				<tbody>
+					for _, guest := range props.Guests {
+						<tr>
+							<td>{ guest.CreatedAt }</td>
+							<td>{ guest.Message }</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</body>
+	</html>
+}

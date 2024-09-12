@@ -1,0 +1,7 @@
+services:
+  server:
+    image: ghcr.io/haleyrc/guestbook:latest
+    volumes:
+      - ./demo.db:/demo.db
+    ports:
+      - 8086:8086
